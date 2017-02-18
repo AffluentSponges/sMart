@@ -12,21 +12,21 @@ class App extends React.Component {
     this.state = {
       categories: [],
       currentCategory:'',
-      itemList: []
+      items: []
     }
   }
 
   componentDidMount() {
-    this.setState({itemList: data})
+    this.setState({items: data});
   }
 
   render() {
-    console.log(this.props.children);
+    console.log('render', this.state.items);
     return (
       <div>
         <Header />
         <CategoriesNav />
-        <ItemList />
+        <ItemList items={this.state.items}/>
         {this.props.children}
       </div>
     );

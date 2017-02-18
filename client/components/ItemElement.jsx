@@ -1,11 +1,11 @@
 import React from 'react'
 import { Card, Icon, Image } from 'semantic-ui-react'
 
-const ItemElement = () => (
+const ItemElement = (props) => (
   <Card>
-    <Image src='https://images.craigslist.org/00H0H_bLAIxNTESZ7_600x450.jpg' />
+    <Image src={props.item.imageUrls[0]} />
     <Card.Content>
-      <Card.Header>Daniel</Card.Header>
+      <Card.Header>{props.item.title}</Card.Header>
       <Card.Meta>Joined in 2016</Card.Meta>
       <Card.Description>Daniel is a comedian living in Nashville.</Card.Description>
     </Card.Content>
