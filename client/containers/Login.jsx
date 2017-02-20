@@ -27,7 +27,8 @@ class Login extends React.Component {
             <Icon name='google plus' /> Login with Google
           </Button>
         </Grid.Row>
-      </Grid> 
+      </Grid>
+      <Divider horizontal>Or</Divider> 
     </div> 
     );
   }
