@@ -14,20 +14,27 @@ class App extends React.Component {
       currentCategory:'',
       items: []
     }
+    this.currentCategoryHandler = this.currentCategoryHandler.bind(this);
   }
 
   componentDidMount() {
-    this.setState({items: data});
+    this.setState({items: data.home});
+  }
+
+  currentCategoryHandler(category) {
+    this.setState({currentCategory: category});
+    this.setState({items: data[category]});
+    console.log('currentCategory is changed to ', category)
   }
 
   render() {
-    console.log('render', this.state.items);
     return (
       <div>
-        <Header />
-        <CategoriesNav />
-        <ItemList items={this.state.items}/>
-        {this.props.children}
+        <Header items={this.state.items}/>
+        {React.cloneElement(this.props.children, {
+          items: this.state.items,
+          currentCategoryHandler: this.currentCategoryHandler
+        })}
       </div>
     );
   }
@@ -35,6 +42,3 @@ class App extends React.Component {
 
 
 export default App;
-        // {this.state.itemList.map((item) =>
-        //   <ItemElement />
-        // )}

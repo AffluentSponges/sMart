@@ -1,11 +1,12 @@
 import React from 'react'
 import { Grid, Image } from 'semantic-ui-react'
 import ItemElement from './ItemElement.jsx'
+import { Link } from 'react-router';
 
 const ItemList = (props) => (
   <Grid relaxed columns={4}>
     {props.items.map((item) =>
-      <Grid.Column>
+      <Grid.Column key={item.postId} as={Link} to={'/i/' + item.postId} onClick={()=>{console.log(item.postId)}}>
         <ItemElement item={item}/>
       </Grid.Column>       
     )}

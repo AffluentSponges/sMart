@@ -7,7 +7,6 @@ const ItemElement = (props) => (
     <Card.Content>
       <Card.Header>{props.item.title}</Card.Header>
       <Card.Meta>Joined in 2016</Card.Meta>
-      <Card.Description>Daniel is a comedian living in Nashville.</Card.Description>
     </Card.Content>
     <Card.Content extra>
       <a>

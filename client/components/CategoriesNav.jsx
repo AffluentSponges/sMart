@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-const CategoryList = ({active, children, to}) => (
+const CategoryList = ({active, children, to, currentCategoryHandler}) => (
     <li>
-      <Link to={to}>
+      <Link to={to} onClick={()=>{console.log(children);currentCategoryHandler(children);}}>
             {children}
       </Link>
     </li>
@@ -19,14 +19,14 @@ class CategoriesNav extends React.Component {
       <div>
         <ul className="row">
           <h5>Categories</h5>
-          <CategoryList to={'/fashion-accessories'}>Fashion and Accessories</CategoryList>
-          <CategoryList to={'/home-garden'}>Home and Garden</CategoryList>
-          <CategoryList to={'/electronics'}>Electronics</CategoryList>
-          <CategoryList to={'/baby-child'}>Baby and Child</CategoryList>
-          <CategoryList to={'/cars-motors'}>Cars and Motors</CategoryList>
-          <CategoryList to={'/sports-leisure-games'}>Sports, Leisure and Games</CategoryList>
-          <CategoryList to={'/movies-books-music'}>Movies, Books and Music</CategoryList>
-          <CategoryList to={'/other'}>Other</CategoryList>
+          <CategoryList to={'/fashion-accessories'} currentCategoryHandler={this.props.currentCategoryHandler}>fashion-accessories</CategoryList>
+          <CategoryList to={'/home-garden'} currentCategoryHandler={this.props.currentCategoryHandler}>home-garden</CategoryList>
+          <CategoryList to={'/electronics'} currentCategoryHandler={this.props.currentCategoryHandler}>electronics</CategoryList>
+          <CategoryList to={'/baby-child'} currentCategoryHandler={this.props.currentCategoryHandler}>baby-child</CategoryList>
+          <CategoryList to={'/cars-motors'} currentCategoryHandler={this.props.currentCategoryHandler}>cars-motors</CategoryList>
+          <CategoryList to={'/sports-leisure-games'} currentCategoryHandler={this.props.currentCategoryHandler}>sports-leisure-games</CategoryList>
+          <CategoryList to={'/movies-books-music'} currentCategoryHandler={this.props.currentCategoryHandler}>movies-books-music</CategoryList>
+          <CategoryList to={'/other'} currentCategoryHandler={this.props.currentCategoryHandler}>other</CategoryList>
         </ul>
       </div>
     );
