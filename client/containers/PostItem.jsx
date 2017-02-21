@@ -1,11 +1,8 @@
 import React, { Component } from 'react'
-
 import { Button, Checkbox, Form, Input, Message, Radio, Select, TextArea, Grid } from 'semantic-ui-react'
 
-const genders = [
-  { key: 'm', text: 'Male', value: 'male' },
-  { key: 'f', text: 'Female', value: 'female' },
-]
+import Autocomplete from '../components/Autocomplete.jsx'
+
 const categories = [
   'Fashion and Accessories',
   'Home and Garden',
@@ -29,6 +26,7 @@ class PostItem extends Component {
     this.state = { formData: {} }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.onFocus = this.onFocus.bind(this);
   }
 
   handleChange(e, { value }) {
@@ -41,27 +39,33 @@ class PostItem extends Component {
   }
 
   componentDidMount() {
-    var options = {
-      enableHighAccuracy: true,
-      timeout: 5000,
-      maximumAge: 0
-    };
+    // get users gps location
+    // var options = {
+    //   enableHighAccuracy: true,
+    //   timeout: 5000,
+    //   maximumAge: 0
+    // };
+    // function success(pos) {
+    //   var crd = pos.coords;
 
-    function success(pos) {
-      var crd = pos.coords;
+    //   console.log('Your current position is:');
+    //   console.log(`Latitude : ${crd.latitude}`);
+    //   console.log(`Longitude: ${crd.longitude}`);
+    //   console.log(`More or less ${crd.accuracy} meters.`);
+    // };
+    // function error(err) {
+    //   console.warn(`ERROR(${err.code}): ${err.message}`);
+    // };
+    // navigator.geolocation.getCurrentPosition(success, error, options);
 
-      console.log('Your current position is:');
-      console.log(`Latitude : ${crd.latitude}`);
-      console.log(`Longitude: ${crd.longitude}`);
-      console.log(`More or less ${crd.accuracy} meters.`);
-    };
-
-    function error(err) {
-      console.warn(`ERROR(${err.code}): ${err.message}`);
-    };
-
-    navigator.geolocation.getCurrentPosition(success, error, options);
   }
+
+  onFocus() {
+
+      console.log('hoho')
+
+  }
+
 
   render() {
     const { formData, value } = this.state
@@ -77,6 +81,10 @@ class PostItem extends Component {
               <Form.Input label='Address2' name='address2' placeholder='Address2' />
               <Form.Input label='Zip code' name='zipcode' placeholder='Zip code' />
             </Form.Group>
+            <Form.Field>
+              <label>Autocomplete Address</label>
+              <Autocomplete />
+            </Form.Field>
             <Form.Select label='Category' name='category' options={products} placeholder='Choose category...' search />
             <Form.TextArea name='details' label='Details' placeholder='Anything else we should know?(optinal)' rows='3' />
             <Button primary type='submit'>Show me the money!</Button>
