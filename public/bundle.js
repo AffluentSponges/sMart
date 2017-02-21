@@ -26712,9 +26712,9 @@
 	  _createClass(Header, [{
 	    key: 'handleItemClick',
 	    value: function handleItemClick(e, _ref) {
-	      // this.setState({ activeItem: name });
-
 	      var name = _ref.name;
+
+	      this.setState({ activeItem: name });
 	    }
 	  }, {
 	    key: 'render',
@@ -26726,12 +26726,36 @@
 	        null,
 	        _react2.default.createElement(
 	          _semanticUiReact.Menu.Item,
-	          { as: _reactRouter.Link, to: '/' },
+	          { as: _reactRouter.Link, to: '/', name: 'smart', active: activeItem === 'smart', onClick: this.handleItemClick },
 	          'SMart'
 	        ),
-	        _react2.default.createElement(_Search2.default, { items: this.props.items }),
-	        _react2.default.createElement(_semanticUiReact.Menu.Item, { as: _reactRouter.Link, to: '/login', name: 'Log in', active: activeItem === 'jobs', onClick: this.handleItemClick }),
-	        _react2.default.createElement(_semanticUiReact.Menu.Item, { as: _reactRouter.Link, to: '/post', name: 'Sell Your Stuff', active: activeItem === 'locations', onClick: this.handleItemClick })
+	        _react2.default.createElement(
+	          _semanticUiReact.Menu.Item,
+	          null,
+	          _react2.default.createElement(_Search2.default, { items: this.props.items })
+	        ),
+	        _react2.default.createElement(
+	          _semanticUiReact.Menu.Menu,
+	          { position: 'right' },
+	          _react2.default.createElement(
+	            _semanticUiReact.Menu.Item,
+	            { as: _reactRouter.Link, to: '/login', name: 'Log in', active: activeItem === 'Log in', onClick: this.handleItemClick },
+	            _react2.default.createElement(
+	              _semanticUiReact.Button,
+	              { basic: true, color: 'red' },
+	              'Log in'
+	            )
+	          ),
+	          _react2.default.createElement(
+	            _semanticUiReact.Menu.Item,
+	            { position: 'right', as: _reactRouter.Link, to: '/post', name: 'Sell Your Stuff', active: activeItem === 'Sell Your Stuff', onClick: this.handleItemClick },
+	            _react2.default.createElement(
+	              _semanticUiReact.Button,
+	              { color: 'red' },
+	              'Sell Your Stuff'
+	            )
+	          )
+	        )
 	      );
 	    }
 	  }]);
@@ -152801,7 +152825,7 @@
 	                null,
 	                _react2.default.createElement(
 	                  _semanticUiReact.Button,
-	                  { size: 'huge', className: 'buy' },
+	                  { size: 'huge', className: 'buy', color: 'red' },
 	                  'Buy now!'
 	                )
 	              )

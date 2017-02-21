@@ -1,5 +1,5 @@
 import React from 'react';
-import { Menu } from 'semantic-ui-react'
+import { Menu, Button } from 'semantic-ui-react'
 import { Link } from 'react-router';
 import Search from './Search.jsx'
 
@@ -10,23 +10,37 @@ class Header extends React.Component {
     this.handleItemClick = this.handleItemClick.bind(this);
   }
   handleItemClick(e, { name }) {
-    // this.setState({ activeItem: name });
+    this.setState({ activeItem: name });
   }
 
   render() {
     const { activeItem } = this.state
     return (
       <Menu>
-        <Menu.Item as={Link} to='/'>SMart</Menu.Item>
-        <Search items={this.props.items}/>
-        <Menu.Item as={Link} to='/login' name='Log in' active={activeItem === 'jobs'} onClick={this.handleItemClick} />
-        <Menu.Item as={Link} to='/post' name='Sell Your Stuff' active={activeItem === 'locations'} onClick={this.handleItemClick} />
+        <Menu.Item as={Link} to='/'name='smart' active={activeItem === 'smart'} onClick={this.handleItemClick}>SMart</Menu.Item>
+        <Menu.Item>
+          <Search items={this.props.items}/>
+        </Menu.Item>
+        <Menu.Menu position='right'>
+          <Menu.Item as={Link} to='/login' name='Log in' active={activeItem === 'Log in'} onClick={this.handleItemClick} >
+            <Button basic color='red'>
+              Log in
+            </Button>
+          </Menu.Item>
+          <Menu.Item position='right' as={Link} to='/post' name='Sell Your Stuff' active={activeItem === 'Sell Your Stuff'} onClick={this.handleItemClick} >
+            <Button color='red'>
+              Sell Your Stuff
+            </Button>
+          </Menu.Item>
+        </Menu.Menu>      
       </Menu>      
     );
   }
 }
 
 export default Header;
+
+
 
 
 // <Menu.Item as={Search}></Menu.Item>

@@ -39,7 +39,7 @@ class ItemDetail extends React.Component {
               </Grid.Row>
               <Divider section />
               <Grid.Row>
-                <Button size='huge' className='buy'>
+                <Button size='huge' className='buy' color='red'>
                   Buy now!
                 </Button>
               </Grid.Row>
