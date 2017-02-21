@@ -72,17 +72,21 @@
 
 	var _Login2 = _interopRequireDefault(_Login);
 
-	var _itemDetail = __webpack_require__(1846);
+	var _itemDetail = __webpack_require__(1845);
 
 	var _itemDetail2 = _interopRequireDefault(_itemDetail);
 
-	var _PostItem = __webpack_require__(1847);
+	var _PostItem = __webpack_require__(1846);
 
 	var _PostItem2 = _interopRequireDefault(_PostItem);
 
-	var _Signup = __webpack_require__(1853);
+	var _Signup = __webpack_require__(1852);
 
 	var _Signup2 = _interopRequireDefault(_Signup);
+
+	var _Profile = __webpack_require__(1853);
+
+	var _Profile2 = _interopRequireDefault(_Profile);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -101,6 +105,7 @@
 	    _react2.default.createElement(_reactRouter.Route, { path: 'signup', component: _Signup2.default }),
 	    _react2.default.createElement(_reactRouter.Route, { path: 'x/:category', component: _Category2.default }),
 	    _react2.default.createElement(_reactRouter.Route, { path: 'i/:postId', component: _itemDetail2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: 'u/:userId', component: _Profile2.default }),
 	    _react2.default.createElement(_reactRouter.Route, { path: 'post', component: _PostItem2.default })
 	  )
 	), document.getElementById('app'));
@@ -26737,6 +26742,25 @@
 	        _react2.default.createElement(
 	          _semanticUiReact.Menu.Menu,
 	          { position: 'right' },
+	          _react2.default.createElement(
+	            _semanticUiReact.Dropdown,
+	            { item: true, text: 'Hi Mark!' },
+	            _react2.default.createElement(
+	              _semanticUiReact.Dropdown.Menu,
+	              null,
+	              _react2.default.createElement(
+	                _semanticUiReact.Dropdown.Item,
+	                { as: _reactRouter.Link, to: '/u/1234123' },
+	                'My Profile'
+	              ),
+	              _react2.default.createElement(_semanticUiReact.Divider, null),
+	              _react2.default.createElement(
+	                _semanticUiReact.Dropdown.Item,
+	                null,
+	                'Log Out'
+	              )
+	            )
+	          ),
 	          _react2.default.createElement(
 	            _semanticUiReact.Menu.Item,
 	            { as: _reactRouter.Link, to: '/login', name: 'Log in', active: activeItem === 'Log in', onClick: this.handleItemClick },
@@ -151701,6 +151725,8 @@
 	  value: true
 	});
 
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
@@ -151715,21 +151741,52 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var ItemList = function ItemList(props) {
-	  return _react2.default.createElement(
-	    _semanticUiReact.Grid,
-	    { relaxed: true, columns: 4 },
-	    props.items.map(function (item) {
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var ItemList = function (_React$Component) {
+	  _inherits(ItemList, _React$Component);
+
+	  function ItemList(props) {
+	    _classCallCheck(this, ItemList);
+
+	    return _possibleConstructorReturn(this, (ItemList.__proto__ || Object.getPrototypeOf(ItemList)).call(this, props));
+	  }
+
+	  _createClass(ItemList, [{
+	    key: 'render',
+	    value: function render() {
 	      return _react2.default.createElement(
-	        _semanticUiReact.Grid.Column,
-	        { key: item.postId, as: _reactRouter.Link, to: '/i/' + item.postId, onClick: function onClick() {
-	            console.log(item.postId);
-	          } },
-	        _react2.default.createElement(_ItemElement2.default, { item: item })
+	        _semanticUiReact.Grid,
+	        { relaxed: true, columns: 4 },
+	        this.props.items.map(function (item) {
+	          return _react2.default.createElement(
+	            _semanticUiReact.Grid.Column,
+	            { key: item.postId, as: _reactRouter.Link, to: '/i/' + item.postId, onClick: function onClick() {
+	                console.log(item.postId);
+	              } },
+	            _react2.default.createElement(_ItemElement2.default, { item: item })
+	          );
+	        })
 	      );
-	    })
-	  );
-	};
+	    }
+	  }]);
+
+	  return ItemList;
+	}(_react2.default.Component);
+
+	// const ItemList = (props) => (
+	//   <Grid relaxed columns={4}>
+	//       {props.items.map((item) =>
+	//         <Grid.Column key={item.postId} as={Link} to={'/i/' + item.postId} onClick={()=>{console.log(item.postId)}}>
+	//           <ItemElement item={item}/>
+	//         </Grid.Column>       
+	//       )}
+	//   </Grid>
+	// )
 
 	exports.default = ItemList;
 
@@ -152724,8 +152781,7 @@
 	exports.default = Login;
 
 /***/ },
-/* 1845 */,
-/* 1846 */
+/* 1845 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -152856,7 +152912,7 @@
 	// </Grid>
 
 /***/ },
-/* 1847 */
+/* 1846 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -152873,7 +152929,7 @@
 
 	var _semanticUiReact = __webpack_require__(235);
 
-	var _Autocomplete = __webpack_require__(1848);
+	var _Autocomplete = __webpack_require__(1847);
 
 	var _Autocomplete2 = _interopRequireDefault(_Autocomplete);
 
@@ -153018,7 +153074,7 @@
 	//  </Form.Group>
 
 /***/ },
-/* 1848 */
+/* 1847 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -153033,7 +153089,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactPlacesAutocomplete = __webpack_require__(1849);
+	var _reactPlacesAutocomplete = __webpack_require__(1848);
 
 	var _reactPlacesAutocomplete2 = _interopRequireDefault(_reactPlacesAutocomplete);
 
@@ -153103,7 +153159,7 @@
 	// </form>
 
 /***/ },
-/* 1849 */
+/* 1848 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -153113,11 +153169,11 @@
 	});
 	exports.geocodeByPlaceId = exports.geocodeByAddress = undefined;
 
-	var _PlacesAutocomplete = __webpack_require__(1850);
+	var _PlacesAutocomplete = __webpack_require__(1849);
 
 	var _PlacesAutocomplete2 = _interopRequireDefault(_PlacesAutocomplete);
 
-	var _utils = __webpack_require__(1852);
+	var _utils = __webpack_require__(1851);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -153126,7 +153182,7 @@
 	exports.default = _PlacesAutocomplete2.default;
 
 /***/ },
-/* 1850 */
+/* 1849 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -153143,7 +153199,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _defaultStyles = __webpack_require__(1851);
+	var _defaultStyles = __webpack_require__(1850);
 
 	var _defaultStyles2 = _interopRequireDefault(_defaultStyles);
 
@@ -153481,7 +153537,7 @@
 	exports.default = PlacesAutocomplete;
 
 /***/ },
-/* 1851 */
+/* 1850 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -153516,7 +153572,7 @@
 	exports.default = defaultStyles;
 
 /***/ },
-/* 1852 */
+/* 1851 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -153563,7 +153619,7 @@
 	};
 
 /***/ },
-/* 1853 */
+/* 1852 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -153730,6 +153786,124 @@
 	}(_react2.default.Component);
 
 	exports.default = SignUp;
+
+/***/ },
+/* 1853 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _semanticUiReact = __webpack_require__(235);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var MenuExampleSecondaryPointing = function (_React$Component) {
+	  _inherits(MenuExampleSecondaryPointing, _React$Component);
+
+	  function MenuExampleSecondaryPointing() {
+	    var _ref;
+
+	    var _temp, _this, _ret;
+
+	    _classCallCheck(this, MenuExampleSecondaryPointing);
+
+	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	      args[_key] = arguments[_key];
+	    }
+
+	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = MenuExampleSecondaryPointing.__proto__ || Object.getPrototypeOf(MenuExampleSecondaryPointing)).call.apply(_ref, [this].concat(args))), _this), _this.state = { activeItem: 'home' }, _this.handleItemClick = function (e, _ref2) {
+	      var name = _ref2.name;
+	      return _this.setState({ activeItem: name });
+	    }, _temp), _possibleConstructorReturn(_this, _ret);
+	  }
+
+	  _createClass(MenuExampleSecondaryPointing, [{
+	    key: 'render',
+	    value: function render() {
+	      var activeItem = this.state.activeItem;
+
+
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          _semanticUiReact.Menu,
+	          { pointing: true, secondary: true },
+	          _react2.default.createElement(_semanticUiReact.Menu.Item, { name: 'home', active: activeItem === 'home', onClick: this.handleItemClick }),
+	          _react2.default.createElement(_semanticUiReact.Menu.Item, { name: 'messages', active: activeItem === 'messages', onClick: this.handleItemClick }),
+	          _react2.default.createElement(_semanticUiReact.Menu.Item, { name: 'friends', active: activeItem === 'friends', onClick: this.handleItemClick })
+	        ),
+	        _react2.default.createElement(
+	          _semanticUiReact.Segment,
+	          null,
+	          _react2.default.createElement('img', { src: 'http://semantic-ui.com/images/wireframe/media-paragraph.png' })
+	        )
+	      );
+	    }
+	  }]);
+
+	  return MenuExampleSecondaryPointing;
+	}(_react2.default.Component);
+
+	var Profile = function (_React$Component2) {
+	  _inherits(Profile, _React$Component2);
+
+	  function Profile(props) {
+	    _classCallCheck(this, Profile);
+
+	    return _possibleConstructorReturn(this, (Profile.__proto__ || Object.getPrototypeOf(Profile)).call(this, props));
+	  }
+
+	  _createClass(Profile, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          _semanticUiReact.Container,
+	          { textAlign: 'center' },
+	          _react2.default.createElement(
+	            _semanticUiReact.Header,
+	            { as: 'h2', icon: true, textAlign: 'center' },
+	            _react2.default.createElement(_semanticUiReact.Icon, { name: 'users', circular: true }),
+	            _react2.default.createElement(
+	              _semanticUiReact.Header.Content,
+	              null,
+	              'Mark Taehoon Jung'
+	            )
+	          ),
+	          _react2.default.createElement(
+	            _semanticUiReact.Button,
+	            { basic: true, color: 'red' },
+	            'Edit profile'
+	          )
+	        ),
+	        _react2.default.createElement(MenuExampleSecondaryPointing, null)
+	      );
+	    }
+	  }]);
+
+	  return Profile;
+	}(_react2.default.Component);
+
+	exports.default = Profile;
 
 /***/ }
 /******/ ]);

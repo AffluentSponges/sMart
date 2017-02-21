@@ -9,6 +9,7 @@ import Login from './containers/Login.jsx';
 import itemDetail from './containers/itemDetail.jsx';
 import PostItem from './containers/PostItem.jsx';
 import Signup from './containers/Signup.jsx';
+import Profile from './containers/Profile.jsx';
 // import About from './containers/About';
 // import Posts from './containers/Posts';
 // import Post from './containers/Post';
@@ -21,6 +22,7 @@ ReactDOM.render(
       <Route path="signup" component={Signup}/>
       <Route path="x/:category" component={Category}/>
       <Route path="i/:postId" component={itemDetail}/>
+      <Route path="u/:userId" component={Profile}/>      
       <Route path="post" component={PostItem}/>
     </Route>
   </Router>,
