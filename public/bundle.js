@@ -151529,6 +151529,8 @@
 
 	var _reactRouter = __webpack_require__(178);
 
+	var _semanticUiReact = __webpack_require__(235);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -151568,7 +151570,7 @@
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
-	        'div',
+	        _semanticUiReact.Segment,
 	        null,
 	        _react2.default.createElement(
 	          'ul',

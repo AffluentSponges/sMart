@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import { Segment } from 'semantic-ui-react'
 
 const CategoryList = ({active, children, to, currentCategoryHandler}) => (
     <li>
@@ -16,7 +17,7 @@ class CategoriesNav extends React.Component {
 
   render() {
     return (
-      <div>
+      <Segment>
         <ul className="row">
           <h5>Categories</h5>
           <CategoryList to={'/x/fashion-accessories'} currentCategoryHandler={this.props.currentCategoryHandler}>fashion-accessories</CategoryList>
@@ -28,7 +29,7 @@ class CategoriesNav extends React.Component {
           <CategoryList to={'/x/movies-books-music'} currentCategoryHandler={this.props.currentCategoryHandler}>movies-books-music</CategoryList>
           <CategoryList to={'/x/other'} currentCategoryHandler={this.props.currentCategoryHandler}>other</CategoryList>
         </ul>
-      </div>
+      </Segment>
     );
   }
 }
