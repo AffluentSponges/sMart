@@ -2,6 +2,36 @@
 
 ## API Guide
 
+### GET v1/categories
+
+Get a list of categories
+
+### GET v1/items
+
+Get a list of items which we want to show on home screen
+
+### GET v1/items/{category_id}
+
+Get a list of items of {category_id}
+
+### GET v1/item/{item_id}
+
+Get details of item of {item_id}
+
+### POST v1/item
+
+POST item
+
+
+
+
+
+
+
+
+
+
+
 ### GET /deliveries
 
 Query Parameters

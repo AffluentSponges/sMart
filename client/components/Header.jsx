@@ -20,7 +20,7 @@ class Header extends React.Component {
         <Menu.Item as={Link} to='/'>SMart</Menu.Item>
         <Search items={this.props.items}/>
         <Menu.Item as={Link} to='/login' name='Log in' active={activeItem === 'jobs'} onClick={this.handleItemClick} />
-        <Menu.Item name='Sell Your Stuff' active={activeItem === 'locations'} onClick={this.handleItemClick} />
+        <Menu.Item as={Link} to='/post' name='Sell Your Stuff' active={activeItem === 'locations'} onClick={this.handleItemClick} />
       </Menu>      
     );
   }

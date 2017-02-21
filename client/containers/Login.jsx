@@ -1,6 +1,34 @@
 import React from 'react';
-import { Button, Icon, Grid, Divider } from 'semantic-ui-react';
+import { Button, Icon, Grid, Divider, Checkbox, Form } from 'semantic-ui-react';
+import SignUp from '../components/SignUp.jsx';
 
+const ButtonExampleConditionals = () => (
+  <Button.Group>
+    <Button>Sign Up</Button>
+    <Button positive>Log In</Button>
+  </Button.Group>
+)
+
+const FormExampleForm = () => (
+  <Form>
+    <Form.Field>
+      <label>Full Name</label>
+      <input placeholder='Full Name' className='socialLogin'/>
+    </Form.Field>
+    <Form.Field>
+      <label>Email</label>
+      <input placeholder='Email' />
+    </Form.Field>
+    <Form.Field>
+      <label>Password</label>
+      <input placeholder='Password' />
+    </Form.Field>
+    <Form.Field>
+      <Checkbox label='I agree to the Terms and Conditions' />
+    </Form.Field>
+    <Button type='submit' className='socialLogin' color='instagram'>Sign Up</Button>
+  </Form>
+)
 
 class Login extends React.Component {
   constructor(props) {
@@ -10,7 +38,7 @@ class Login extends React.Component {
   render() {
     return (
     <div>
-      <Divider />
+      <Divider horizontal><ButtonExampleConditionals /></Divider>
       <Grid centered columns={2}>
         <Grid.Row>
           <Button color='facebook' className='socialLogin'>
@@ -28,7 +56,12 @@ class Login extends React.Component {
           </Button>
         </Grid.Row>
       </Grid>
-      <Divider horizontal>Or</Divider> 
+      <Divider horizontal>Or</Divider>
+      <Grid centered columns={2}>
+        <Grid.Row>
+          <FormExampleForm />
+        </Grid.Row>
+      </Grid>      
     </div> 
     );
   }

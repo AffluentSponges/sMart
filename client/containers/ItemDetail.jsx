@@ -6,6 +6,10 @@ class ItemDetail extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+
+  }
+
   render() {
     let _this = this;
     let postId = this.props.params.postId;
@@ -14,9 +18,15 @@ class ItemDetail extends React.Component {
     })[0];
     let temp = JSON.stringify(itemObj);
     return (
-      <Grid columns={2} centered>
-        <Grid.Column>
+      <Grid centered>
+        <Grid.Column width={10}>
           <Image src={itemObj.imageUrls[0]} />
+          {itemObj.description}
+        </Grid.Column>
+        <Grid.Column width={6}>
+          $180
+
+          {temp}
         </Grid.Column>
       </Grid>
     );
