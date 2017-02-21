@@ -152755,7 +152755,17 @@
 	            _semanticUiReact.Segment,
 	            null,
 	            _react2.default.createElement(_semanticUiReact.Image, { src: itemObj.imageUrls[0], size: 'medium', centered: true }),
-	            itemObj.description
+	            _react2.default.createElement(
+	              'p',
+	              { className: 'description' },
+	              _react2.default.createElement(
+	                'strong',
+	                null,
+	                'Description'
+	              ),
+	              _react2.default.createElement('br', null),
+	              itemObj.description
+	            )
 	          )
 	        ),
 	        _react2.default.createElement(
@@ -152766,19 +152776,33 @@
 	            null,
 	            _react2.default.createElement(
 	              _semanticUiReact.Grid,
-	              { centered: true },
+	              { centered: true, columns: 2 },
+	              _react2.default.createElement(
+	                _semanticUiReact.Grid.Row,
+	                null,
+	                _react2.default.createElement(
+	                  'h1',
+	                  null,
+	                  '$180'
+	                )
+	              ),
 	              _react2.default.createElement(
 	                _semanticUiReact.Grid.Row,
 	                null,
 	                _react2.default.createElement(
 	                  'h2',
 	                  null,
-	                  '$180'
-	                ),
+	                  itemObj.title
+	                )
+	              ),
+	              _react2.default.createElement(_semanticUiReact.Divider, { section: true }),
+	              _react2.default.createElement(
+	                _semanticUiReact.Grid.Row,
+	                null,
 	                _react2.default.createElement(
-	                  'h4',
-	                  null,
-	                  temp.title
+	                  _semanticUiReact.Button,
+	                  { size: 'huge', className: 'buy' },
+	                  'Buy now!'
 	                )
 	              )
 	            )

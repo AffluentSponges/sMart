@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Image, Segment } from 'semantic-ui-react'
+import { Grid, Image, Segment, Divider, Button } from 'semantic-ui-react'
 
 class ItemDetail extends React.Component {
   constructor(props) {
@@ -22,15 +22,26 @@ class ItemDetail extends React.Component {
         <Grid.Column width={10}>
           <Segment>
               <Image src={itemObj.imageUrls[0]} size='medium' centered/>
-              {itemObj.description}
+              <p className='description'>
+                <strong>Description</strong><br/>
+                {itemObj.description}
+              </p>
           </Segment>
         </Grid.Column>
         <Grid.Column width={6}>
           <Segment>
-            <Grid centered>
+            <Grid centered columns={2}>
               <Grid.Row>
-                  <h2>$180</h2>
-                  <h4>{temp.title}</h4>
+                <h1>$180</h1>
+              </Grid.Row>
+              <Grid.Row>
+                <h2>{itemObj.title}</h2>
+              </Grid.Row>
+              <Divider section />
+              <Grid.Row>
+                <Button size='huge' className='buy'>
+                  Buy now!
+                </Button>
               </Grid.Row>
             </Grid>
           </Segment>
