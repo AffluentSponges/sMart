@@ -76,14 +76,9 @@ class PostItem extends Component {
             <Form.Group widths='equal'>
               <Form.Input label='Title' name='title' placeholder='Title' />
             </Form.Group>
-            <Form.Group widths='equal'>
-              <Form.Input label='Address1' name='address1' placeholder='Address1' />
-              <Form.Input label='Address2' name='address2' placeholder='Address2' />
-              <Form.Input label='Zip code' name='zipcode' placeholder='Zip code' />
-            </Form.Group>
             <Form.Field>
               <label>Autocomplete Address</label>
-              <Autocomplete />
+              <Autocomplete name='autocomplete'/>
             </Form.Field>
             <Form.Select label='Category' name='category' options={products} placeholder='Choose category...' search />
             <Form.TextArea name='details' label='Details' placeholder='Anything else we should know?(optinal)' rows='3' />
@@ -100,3 +95,11 @@ class PostItem extends Component {
 }
 
 export default PostItem;
+
+
+
+          //  <Form.Group widths='equal'>
+          //    <Form.Input label='Address1' name='address1' placeholder='Address1' />
+          //    <Form.Input label='Address2' name='address2' placeholder='Address2' />
+          //    <Form.Input label='Zip code' name='zipcode' placeholder='Zip code' />
+          //  </Form.Group>

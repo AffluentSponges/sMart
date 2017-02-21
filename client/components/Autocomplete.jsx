@@ -4,7 +4,7 @@ import PlacesAutocomplete, { geocodeByAddress } from 'react-places-autocomplete'
 class SimpleForm extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { address: 'San Francisco, CA' }
+    this.state = { address: '' }
     this.onChange = (address) => this.setState({ address })
   }
  
@@ -21,15 +21,23 @@ class SimpleForm extends React.Component {
  
   render() {
     return (
-      <form onSubmit={this.handleFormSubmit}>
         <PlacesAutocomplete
+          name='autocomplete'
           value={this.state.address}
           onChange={this.onChange}
+          placeholder='your address will be autocompleted'
         />
-        <button type="submit">Submit</button>
-      </form>
     )
   }
 }
  
 export default SimpleForm
+
+
+      // <form onSubmit={this.handleFormSubmit}>
+      //   <PlacesAutocomplete
+      //     value={this.state.address}
+      //     onChange={this.onChange}
+      //   />
+      //   <button type="submit">Submit</button>
+      // </form>

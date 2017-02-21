@@ -4,13 +4,17 @@ import { Link } from 'react-router';
 
 const ButtonExampleConditionals = () => (
   <Button.Group>
-    <Button as={Link} to='/signup'>Sign Up</Button>
-    <Button positive>Log In</Button>
+    <Button positive>Sign Up</Button>
+    <Button as={Link} to='/login'>Log In</Button>
   </Button.Group>
 )
 
 const FormExampleForm = () => (
   <Form>
+    <Form.Field>
+      <label>Full Name</label>
+      <input placeholder='Full Name' className='socialLogin'/>
+    </Form.Field>
     <Form.Field>
       <label>Email</label>
       <input placeholder='Email' />
@@ -19,11 +23,14 @@ const FormExampleForm = () => (
       <label>Password</label>
       <input placeholder='Password' />
     </Form.Field>
-    <Button type='submit' className='socialLogin' color='instagram'>Log in</Button>
+    <Form.Field>
+      <Checkbox label='I agree to the Terms and Conditions' />
+    </Form.Field>
+    <Button type='submit' className='socialLogin' color='instagram'>Sign Up</Button>
   </Form>
 )
 
-class Login extends React.Component {
+class SignUp extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -35,17 +42,17 @@ class Login extends React.Component {
       <Grid centered columns={2}>
         <Grid.Row>
           <Button color='facebook' className='socialLogin'>
-            <Icon name='facebook' /> Login with Facebook 
+            <Icon name='facebook' /> Sign Up with Facebook 
           </Button>
         </Grid.Row>
         <Grid.Row>
           <Button color='twitter' className='socialLogin'>
-            <Icon name='twitter' /> Login with Twitter
+            <Icon name='twitter' /> Sign Up with Twitter
           </Button>
         </Grid.Row>
         <Grid.Row>
           <Button color='google plus' className='socialLogin'>
-            <Icon name='google plus' /> Login with Google
+            <Icon name='google plus' /> Sign Up with Google
           </Button>
         </Grid.Row>
       </Grid>
@@ -61,4 +68,4 @@ class Login extends React.Component {
 }
 
 
-export default Login;
+export default SignUp;
